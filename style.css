@@ -9,6 +9,7 @@
     --btnop-color: #161616;
     --btnclear: #161616;
     --btnsum-color: #31302f;
+    --foot-color: #31302f;
 }
 
 :root.light {
@@ -17,10 +18,11 @@
     --txt-color: #7b7b7b;
     --bordr-color: #eeee;
     --btn-color: #eef8fb;
-    --btnhover-color: #ddd;
+    --btnhover-color: #dddd;
     --btnop-color: #d5eaf6;
     --btnclear: #d5eaf6;
     --btnsum-color: #d5eaf6;
+    --foot-color: #bbd8ea;
 }
 
 body {
@@ -35,15 +37,30 @@ body {
     color: var(--txt-color);
 }
 
+.toggle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt-color);
+    font-family: Brush Script MT;
+    font-size: 30px;
+}
+
 .theme-btn {
-    width: 3em;
-    height: 3em;
+    width: 5em;
+    height: 5em;
     padding: 0.5em;
-    margin: 0.5em;
     border-radius: 50%;
     cursor: pointer;
     border: none;
     background-color: transparent;
+}
+
+.theme-btn img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 #container {
@@ -160,4 +177,17 @@ button.clear {
 
 button.sum {
     background-color: var(--btnsum-color);
+}
+
+a {
+    color: var(--txt-color);
+}
+
+footer {
+    font-size: medium;
+    margin: 5px;
+    padding: 5px;
+    background-color: var(--foot-color);
+    border: 2px solid var(--bordr-color);
+    border-radius: 15px;
 }
