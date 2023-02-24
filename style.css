@@ -1,0 +1,163 @@
+:root,
+:root.dark {
+    --bgc-color: #000;
+    --sc-color: #1f1f1f;
+    --txt-color: #eeee;
+    --bordr-color: #aaaa;
+    --btn-color: #000;
+    --btnhover-color: #353535;
+    --btnop-color: #161616;
+    --btnclear: #161616;
+    --btnsum-color: #31302f;
+}
+
+:root.light {
+    --bgc-color: #00b0f9;
+    --sc-color: #bbd8ea;
+    --txt-color: #7b7b7b;
+    --bordr-color: #eeee;
+    --btn-color: #eef8fb;
+    --btnhover-color: #ddd;
+    --btnop-color: #d5eaf6;
+    --btnclear: #d5eaf6;
+    --btnsum-color: #d5eaf6;
+}
+
+body {
+    background-color: var(--bgc-color);
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 360px;
+    margin: auto;
+}
+
+.btn {
+    color: var(--txt-color);
+}
+
+.theme-btn {
+    width: 3em;
+    height: 3em;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+#container {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: repeat(8, 55px);
+    grid-template-areas: 'screen screen screen screen' 'screen screen screen screen' 'screen screen screen screen' 'clear clear clear divide' 'seven eight nine multi' 'four five six minus' 'one two three plus' 'zero zero decimal equals';
+    border: 1px solid var(--bordr-color);
+    text-align: center;
+}
+
+#screen {
+    grid-area: screen;
+    background-color: var(--sc-color);
+    border-bottom: 0.5px solid var(--bordr-color);
+    text-align: right;
+    font-size: 45px;
+}
+
+#clear {
+    grid-area: clear;
+}
+
+#devision {
+    grid-area: divide;
+}
+
+#seven {
+    grid-area: seven;
+}
+
+#eieght {
+    grid-area: eight;
+}
+
+#nine {
+    grid-area: nine;
+}
+
+#multipliy {
+    grid-area: multi;
+}
+
+#four {
+    grid-area: four;
+}
+
+#five {
+    grid-area: five;
+}
+
+#six {
+    grid-area: six;
+}
+
+#minus {
+    grid-area: minus;
+}
+
+#one {
+    grid-area: one;
+}
+
+#two {
+    grid-area: two;
+}
+
+#three {
+    grid-area: three;
+}
+
+#plus {
+    grid-area: plus;
+}
+
+#zero {
+    grid-area: zero;
+}
+
+#decimal {
+    grid-area: decimal;
+}
+
+#equals {
+    grid-area: equals;
+}
+
+button {
+    font-size: 20px;
+    font-weight: 100;
+    color: #fff;
+    border: 0.5px solid var(--bordr-color);
+}
+
+#equals:hover {
+    background-color: #f00;
+}
+
+button.btn {
+    background-color: var(--btn-color);
+}
+
+.btn:hover {
+    background-color: var(--btnhover-color);
+}
+
+button.op {
+    background-color: var(--btnop-color);
+}
+
+button.clear {
+    background-color: var(--btnclear);
+}
+
+button.sum {
+    background-color: var(--btnsum-color);
+}

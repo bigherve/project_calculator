@@ -1,3 +1,17 @@
+const lightBtn = document.querySelector('.light');
+const darkBtn = document.querySelector('.dark');
+
+function setThemeLight() {
+    document.documentElement.className = 'light';
+}
+
+function setThemeDark() {
+    document.documentElement.className = 'dark';
+}
+
+lightBtn.addEventListener('click', setThemeLight);
+darkBtn.addEventListener('click', setThemeDark);
+
 function add(num1, num2) {
     return num1 + num2;
 }

@@ -6,11 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="image/x-icon" href="./images/icons8-calculator-58.png" />
     <script src="./script.js" defer></script>
     <title>Document</title>
 </head>
 
 <body>
+    <div class="toggle-container">
+        <button class="theme-btn light" title="Light mode">
+        <img src="./images/icons8-smiling-sun-100.png" alt="sun" />
+      </button>
+
+        <button class="theme-btn dark" title="Dark mode">
+        <img src="./images/icons8-moon-and-stars-100.png" alt="moon" />
+      </button>
+    </div>
+
     <div id="container">
         <div id="screen"></div>
 
@@ -32,6 +43,8 @@
         <button id="decimal" class="btn dot" value="." data-key="190">.</button>
         <button id="equals" class="btn sum" value="=" data-key="69">=</button>
     </div>
+
+    <footer><a href="https://icons8.com/icons/">icons</a></footer>
 </body>
 
 </html>
