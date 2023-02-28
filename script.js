@@ -50,10 +50,12 @@ buttons.forEach((item) =>
 );
 
 equals.addEventListener('click', () => {
+    // split the expression into number1, operator, and number2
     const [number1, operator, number2] = displayValue
         .match(/(\d+)\s*([\+\-\*\/])\s*(\d+)/)
         .slice(1);
 
+    // print the result
     clearDisplay();
     appendNumber(operate(operator, number1, number2));
 });
