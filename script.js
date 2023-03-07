@@ -159,6 +159,9 @@ function clickButton() {
             } else if (buttons[i].classList.contains('dot')) {
                 inputDecimal(buttons[i].value);
                 appendNumber();
+            } else if (buttons[i].classList.contains('clear')) {
+                clearDisplay();
+                appendNumber();
             }
         });
     }
