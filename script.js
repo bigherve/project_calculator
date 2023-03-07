@@ -12,50 +12,82 @@ function setThemeDark() {
 lightBtn.addEventListener('click', setThemeLight);
 darkBtn.addEventListener('click', setThemeDark);
 
-let displayValue = '';
+let displayValue = '0';
+let firstOperand = null;
+let secondOperand = null;
+let firstOperator = null;
+let secondOperator = null;
+let result = null;
 const screen = document.querySelector('#text');
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('button');
 const clear = document.querySelector('#clear');
 const equals = document.querySelector('#equals');
 
+window.addEventListener('keydown', function(e) {
+    const key = document.querySelector(`button[data-key='${e.key}']`);
+    key.click();
+});
+
 function clearDisplay() {
-    displayValue = '';
-    screen.textContent = displayValue;
+    displayValue = '0';
+    firstOperand = null;
+    secondOperand = null;
+    firstOperator = null;
+    secondOperator = null;
+    result = null;
 }
 
-function appendNumber(num) {
-    displayValue += num;
+function appendNumber() {
     screen.textContent = displayValue;
+    if (displayValue.length > 10) {
+        screen.textContent = displayValue.substring(0, 10);
+    }
 }
+
+appendNumber();
 
 function operate(operator, number1, number2) {
     const operators = {
         '+': (a, b) => a + b,
         '-': (a, b) => a - b,
         '*': (a, b) => a * b,
-        '/': (a, b) => a / b,
+        '/': (a, b) => {
+            if (b === 0) {
+                return 'lmao';
+            } else {
+                return a / b;
+            }
+        },
     };
 
     if (operator in operators) {
-        return operators[operator](+number1, +number2);
-    } else return 'ERROR!';
+        return operators[operator](number1, number2);
+    }
 }
 
 buttons.forEach((item) =>
     item.addEventListener('click', (e) => {
-        if (e.target.value === 'clear') {
-            clearDisplay();
-        } else appendNumber(e.target.value);
+        if (e.target.classList.contains('op')) {
+            inputOperand(e.value);
+            updateDisplay();
+        } else if (e.target.classList.contains('num')) {
+            inputOperator(e.value);
+        } else if (e.target.classList.contains('sum')) {
+            inputEquals();
+            updateDisplay();
+        } else if (e.target.classList.contains('dot')) {
+            inputDecimal(e.value);
+            updateDisplay();
+        } else if (e.target.classList.contains('clear')) clearDisplay();
+        updateDisplay();
     })
 );
 
 equals.addEventListener('click', () => {
-    // split the expression into number1, operator, and number2
     const [number1, operator, number2] = displayValue
         .match(/(\d+)\s*([\+\-\*\/])\s*(\d+)/)
         .slice(1);
 
-    // print the result
     clearDisplay();
     appendNumber(operate(operator, number1, number2));
 });
