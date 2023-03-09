@@ -37,8 +37,8 @@ function clearDisplay() {
 
 function appendNumber() {
     screen.textContent = displayValue;
-    if (displayValue.length > 10) {
-        screen.textContent = displayValue.substring(0, 10);
+    if (displayValue.length > 14) {
+        screen.textContent = displayValue.substring(0, 14);
     }
 }
 
@@ -146,20 +146,20 @@ function inputEquals() {
 }
 
 function clickButton() {
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', () => {
-            if (buttons[i].classList.contains('num')) {
-                inputOperand(buttons[i].value);
+    for (let btn of buttons) {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('num')) {
+                inputOperand(btn.value);
                 appendNumber();
-            } else if (buttons[i].classList.contains('op')) {
-                inputOperator(buttons[i].value);
-            } else if (buttons[i].classList.contains('sum')) {
+            } else if (btn.classList.contains('op')) {
+                inputOperator(btn.value);
+            } else if (btn.classList.contains('sum')) {
                 inputEquals();
                 appendNumber();
-            } else if (buttons[i].classList.contains('dot')) {
-                inputDecimal(buttons[i].value);
+            } else if (btn.classList.contains('dot')) {
+                inputDecimal(btn.value);
                 appendNumber();
-            } else if (buttons[i].classList.contains('clear')) {
+            } else if (btn.classList.contains('clear')) {
                 clearDisplay();
                 appendNumber();
             }
